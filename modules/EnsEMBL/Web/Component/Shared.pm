@@ -34,7 +34,7 @@ use strict;
 sub gene_tree_button {
     my $obj = shift;
     my ($url,$label) = @_;
-    my $button = '<a href="'.$url.'">'.$label.'</a>';
+    my $button = '<a class="button" href="'.$url.'">'.$label.'</a>';
     return $button;
 }
 
