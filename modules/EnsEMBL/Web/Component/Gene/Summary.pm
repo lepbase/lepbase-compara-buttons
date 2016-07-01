@@ -52,9 +52,6 @@ sub content {
   my $gene        = $object->Obj;
 
   # add gene tree buttons
-  my $title = $object->stable_id;
-  my $slice = $object->slice;
-
   my $member     = $object->database('compara') ? $object->database('compara')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
   my $pan_member = $object->database('compara_pan_ensembl') ? $object->database('compara_pan_ensembl')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
   my $gt_html;

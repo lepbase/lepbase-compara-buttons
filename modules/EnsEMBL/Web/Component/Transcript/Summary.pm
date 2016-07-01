@@ -46,17 +46,16 @@ sub content {
   my $html = $self->PREV::content();
 
   my $hub         = $self->hub;
-  my $object      = $self->object->parent->object;
+  my $object      = $self->object;
   my $species     = $hub->species;
   my $table       = $self->new_twocol;
   my $gene        = $self->object->gene;
 
-  # add gene tree buttons
-  my $title = $object->stable_id;
-  my $slice = $object->slice;
+  my $gene_object = $object->database('core')->get_GeneAdaptor->fetch_by_stable_id($gene->stable_id);
 
-  my $member     = $object->database('compara') ? $object->database('compara')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
-  my $pan_member = $object->database('compara_pan_ensembl') ? $object->database('compara_pan_ensembl')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
+  # add gene tree buttons
+  my $member     = $gene_object->database('compara') ? $gene_object->database('compara')->get_GeneMemberAdaptor->fetch_by_stable_id($gene_object->stable_id) : undef;
+  my $pan_member = $gene_object->database('compara_pan_ensembl') ? $gene_object->database('compara_pan_ensembl')->get_GeneMemberAdaptor->fetch_by_stable_id($gene_object->stable_id) : undef;
   my $gt_html;
   if ($member && $member->has_GeneTree){
     my $gene_tree_url = $hub->url({
