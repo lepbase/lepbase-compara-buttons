@@ -71,7 +71,7 @@ sub content {
   }
 
   if ($gt_html){
-    $table->add_row('Gene trees',$blast_html);
+    $table->add_row('Gene trees',$gt_html);
     $html .= sprintf '<div class="summary_panel">%s</div>', $table->render;
   }
 ##################################
