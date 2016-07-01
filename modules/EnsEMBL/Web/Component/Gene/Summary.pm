@@ -55,8 +55,8 @@ sub content {
   my $title = $object->stable_id;
   my $slice = $object->slice;
 
-  my $member     = $self->database('compara') ? $self->database('compara')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
-  my $pan_member = $self->database('compara_pan_ensembl') ? $self->database('compara_pan_ensembl')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
+  my $member     = $gene->database('compara') ? $gene->database('compara')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
+  my $pan_member = $gene->database('compara_pan_ensembl') ? $gene->database('compara_pan_ensembl')->get_GeneMemberAdaptor->fetch_by_stable_id($object->stable_id) : undef;
   my $gt_html;
   if ($member && $member->has_GeneTree){
     my $gene_tree_url = $hub->url({
