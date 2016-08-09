@@ -35,6 +35,7 @@ sub modify_tree {
   $self->PREV::modify_tree(@_);
 
   $self->delete_node('PanCompara');
+  $self->delete_node('Compara');
 }
 
 1;
