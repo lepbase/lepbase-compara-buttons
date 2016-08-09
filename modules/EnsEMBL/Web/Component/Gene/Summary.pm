@@ -69,7 +69,7 @@ sub content {
       action => 'Compara_Tree/pan_compara',
       g      => $gene->stable_id
     });
-    $gt_html .= EnsEMBL::Web::Component::Shared->gene_tree_button($gene_tree_url,'Metazoan gene tree');
+  #  $gt_html .= EnsEMBL::Web::Component::Shared->gene_tree_button($gene_tree_url,'Metazoan gene tree');
   }
 
   if ($gt_html){
